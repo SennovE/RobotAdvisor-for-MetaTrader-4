@@ -14,6 +14,6 @@ The first option:
 3. Drag the roboExpert Expert Advisor from the Navigator panel to the chart in the trading terminal
 
 The second option:
-1. Download the `roboExpert.mq4` file into folder `...\MQL4\Experts` and compile it into MetaEditor 4
+1. Download the `roboExpert.mq4` file into folder `...\MQL4\Experts` and compile it in MetaEditor 4
 2. If the text on your computer does not look as it should, try reducing or increasing the TS constant in the `roboExpert.mq4` file
 3. See point 2 in the first option
