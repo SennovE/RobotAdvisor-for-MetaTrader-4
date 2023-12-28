@@ -26,6 +26,8 @@ General
 5. Currency pairs with 6 digits.
 6. The item is considered to be a unit of the last category.
 
+<img src="https://github.com/SennovE/RobotAdvisor-for-MetaTrader-4/assets/93314968/6809225e-602e-461e-8bf4-c5f2d9263db9" width="400">
+
 # Warnings
 
 This software product is provided "as is" without warranty of any kind, express or implied.
