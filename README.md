@@ -18,6 +18,14 @@ The second option:
 2. If the text on your computer does not look as it should, try reducing or increasing the TS constant in the `roboExpert.mq4` file
 3. See point 2 in the first option
 
+General
+1. MT4 terminal.
+2. Leverage 1:100.
+3. Account currency – USD.
+4. Currency pairs are only USDXXX and XXXUSD.
+5. Currency pairs with 6 digits.
+6. The item is considered to be a unit of the last category.
+
 # Warnings
 
 This software product is provided "as is" without warranty of any kind, express or implied.
