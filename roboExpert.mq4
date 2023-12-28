@@ -18,7 +18,7 @@ const int SIZEX = 600;
 const int SIZEY = SIZEX*2/3;
 //const int BGCOLOR = Black, TEXTCOLOR = C'245,255,255', EDITBGCOLOR = Black;
 const int BGCOLOR = C'245,255,255', TEXTCOLOR = Black, EDITBGCOLOR = White;
-const double TS = 0.6;
+const double TS = 1;
 const int TEXTSIZEHEAD = SIZEX/45*TS;
 const int TEXTSIZEBIG = SIZEX/30*TS;
 const int TEXTSIZESMALL = SIZEX/60*TS;
@@ -509,10 +509,10 @@ void CloseAlert()
     int y = ObjectGetInteger(0,"Window",OBJPROP_YDISTANCE) - 20;
     int chart_ID = 0;
     RectLabelCreate(chart_ID,"CloseAlertWindow",SIZEX + x,20 + y,SIZEX,SIZEY);
-    ButtonCreate(chart_ID, "CloseNo", SIZEX/7*6 + x, SIZEY/3*2 + y, SIZEX*9/28, SIZEY/3*2/5, "Нет", "Arial Black", TEXTSIZEBIG, clrNONE);
-    ButtonCreate(chart_ID, "CloseYes", SIZEX/28*13 + x, SIZEY/3*2 + y, SIZEX*9/28, SIZEY/3*2/5, "Удалить", "Arial Black", TEXTSIZEBIG, clrNONE);
-    LabelCreate(chart_ID,"CloseAlertLable1",SIZEX/1.25 + x,SIZEY/3 + y,"Вы точно хотите удалить","Arial Black",TEXTSIZEBIG);
-    LabelCreate(chart_ID,"CloseAlertLable2",SIZEX/1.3 + x,SIZEY/3 + SIZEX/30*2 + y,"советника с графика?","Arial Black",TEXTSIZEBIG);
+    ButtonCreate(chart_ID, "CloseNo", SIZEX/7*6 + x, SIZEY/3*2 + y, SIZEX*9/28, SIZEY/3*2/5, "No", "Arial Black", TEXTSIZEBIG, clrNONE);
+    ButtonCreate(chart_ID, "CloseYes", SIZEX/28*13 + x, SIZEY/3*2 + y, SIZEX*9/28, SIZEY/3*2/5, "Remove", "Arial Black", TEXTSIZEBIG, clrNONE);
+    LabelCreate(chart_ID,"CloseAlertLable1",SIZEX/1.1 + x,SIZEY/3 + y,"Are you sure you want to remove","Arial Black",TEXTSIZEBIG);
+    LabelCreate(chart_ID,"CloseAlertLable2",SIZEX/1.25 + x,SIZEY/3 + SIZEX/30*2 + y,"an advisor from the chart?","Arial Black",TEXTSIZEBIG);
    
   }
 
@@ -542,9 +542,9 @@ void OpenInterface()
     RectLabelCreate(chart_ID,"SubWindow",SIZEX,SIZEY*0.15,SIZEX,SIZEY*0.917);
     RectLabelCreate(chart_ID,"TableWindow",SIZEX*0.964,SIZEY/5,SIZEX*0.9286,SIZEY*0.5);
     name = "Hours";
-    LabelCreate(chart_ID,name,SIZEX/2,SIZEY*0.22,"Часы","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,name,SIZEX/2,SIZEY*0.22,"Hour","Arial",TEXTSIZEHEAD);
     name = "Minutes";
-    LabelCreate(chart_ID,name,SIZEX*0.957,SIZEY/1.9,"Минуты","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,name,SIZEX*0.957,SIZEY/1.9,"Minute ","Arial",TEXTSIZEHEAD);
     ObjectSetDouble(chart_ID,name,OBJPROP_ANGLE,90);
     int i;
     int j;
@@ -591,50 +591,50 @@ void OpenInterface()
            }
         }
     
-    ButtonCreate(chart_ID, "UselessGray", SIZEX*0.93, SIZEY*0.607, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
-    LabelCreate(chart_ID,"GrayText",SIZEX*0.90,SIZEY*0.595," - не проверять","Arial",TEXTSIZEHEAD);
-    ButtonCreate(chart_ID, "UselessGreen", SIZEX*0.67, SIZEY*0.607, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
-    LabelCreate(chart_ID,"GreenText",SIZEX*0.64,SIZEY*0.595," - пробой","Arial",TEXTSIZEHEAD);
-    ButtonCreate(chart_ID, "UselessRed", SIZEX*0.485, SIZEY*0.607, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
-    LabelCreate(chart_ID,"RedText",SIZEX*0.465,SIZEY*0.595," - отскок","Arial",TEXTSIZEHEAD);
-    ButtonCreate(chart_ID, "UselessPurple", SIZEX*0.33, SIZEY*0.607, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
-    LabelCreate(chart_ID,"PurpleText",SIZEX*0.30,SIZEY*0.595," - сделка закрыта","Arial",TEXTSIZEHEAD);
+    ButtonCreate(chart_ID, "UselessGray", SIZEX*0.93, SIZEY*0.6, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
+    LabelCreate(chart_ID,"GrayText",SIZEX*0.90,SIZEY*0.595," - do not check","Arial",TEXTSIZEHEAD);
+    ButtonCreate(chart_ID, "UselessGreen", SIZEX*0.7, SIZEY*0.6, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
+    LabelCreate(chart_ID,"GreenText",SIZEX*0.67,SIZEY*0.595," - breakdown","Arial",TEXTSIZEHEAD);
+    ButtonCreate(chart_ID, "UselessRed", SIZEX*0.485, SIZEY*0.6, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
+    LabelCreate(chart_ID,"RedText",SIZEX*0.465,SIZEY*0.595," - rollback","Arial",TEXTSIZEHEAD);
+    ButtonCreate(chart_ID, "UselessPurple", SIZEX*0.33, SIZEY*0.6, size*0.75, size*0.75, "", "Arial", 0, BGCOLOR);
+    LabelCreate(chart_ID,"PurpleText",SIZEX*0.30,SIZEY*0.595," - the deal is closed","Arial",TEXTSIZEHEAD);
     ObjectSetInteger(chart_ID, "UselessPurple", OBJPROP_BGCOLOR, BGCOLOR);
     ObjectSetInteger(chart_ID, "UselessPurple", OBJPROP_BORDER_COLOR, C'153,0,204');
     ObjectSetInteger(chart_ID, "UselessRed", OBJPROP_BGCOLOR, C'255,51,51');
     ObjectSetInteger(chart_ID, "UselessGreen", OBJPROP_BGCOLOR, C'0,153,102');
     ObjectSetInteger(chart_ID, "UselessGray", OBJPROP_BGCOLOR, LightGray);
       
-    LabelCreate(chart_ID,"Level",SIZEX*0.95,SIZEY*0.72,"Уровень:","Arial",TEXTSIZEHEAD);
-    LabelCreate(chart_ID,"PriceMove",SIZEX*0.95,SIZEY*0.80,"Смещение цены:","Arial",TEXTSIZEHEAD);
-    LabelCreate(chart_ID,"MoveTP",SIZEX*0.95,SIZEY*0.88,"Смещение TP:","Arial",TEXTSIZEHEAD);
-    LabelCreate(chart_ID,"MoveSL",SIZEX*0.95,SIZEY*0.96,"Смещение SL:","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"Level",SIZEX*0.95,SIZEY*0.72,"Level:","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"PriceMove",SIZEX*0.95,SIZEY*0.80,"Price shift:","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"MoveTP",SIZEX*0.95,SIZEY*0.88,"TP Offset:","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"MoveSL",SIZEX*0.95,SIZEY*0.96,"SL Offset:","Arial",TEXTSIZEHEAD);
     EditCreate(chart_ID, "LevelEdit", SIZEX*0.7, SIZEY*0.72, SIZEX/7, SIZEX/25, level_*100000, "Arial", TEXTSIZEHEAD);
     EditCreate(chart_ID, "PriceMoveEdit", SIZEX*0.7, SIZEY*0.8, SIZEX/7, SIZEX/25, priceMove_*100000, "Arial", TEXTSIZEHEAD);
     EditCreate(chart_ID, "MoveTPEdit", SIZEX*0.7, SIZEY*0.88, SIZEX/7, SIZEX/25, moveTP_*100000, "Arial", TEXTSIZEHEAD);
     EditCreate(chart_ID, "MoveSLEdit", SIZEX*0.7, SIZEY*0.96, SIZEX/7, SIZEX/25, moveSL_*100000, "Arial", TEXTSIZEHEAD);
       
-    LabelCreate(chart_ID,"Breakeven",SIZEX*0.5,SIZEY*0.72,"Безубыток:","Arial",TEXTSIZEHEAD);
-    LabelCreate(chart_ID,"Deposit",SIZEX*0.5,SIZEY*0.80,"Загрузка депозита (%):","Arial",TEXTSIZEHEAD);
-    LabelCreate(chart_ID,"Commission",SIZEX*0.5,SIZEY*0.88,"Комиссия ($/лот):","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"Breakeven",SIZEX*0.5,SIZEY*0.72,"Breakeven:","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"Deposit",SIZEX*0.5,SIZEY*0.80,"Deposit (%):","Arial",TEXTSIZEHEAD);
+    LabelCreate(chart_ID,"Commission",SIZEX*0.5,SIZEY*0.88,"Commission ($/lot):","Arial",TEXTSIZEHEAD);
     EditCreate(chart_ID, "BreakevenEdit", SIZEX*0.179, SIZEY*0.72, SIZEX/7, SIZEX/25, breakeven_*100000, "Arial", TEXTSIZEHEAD);
     EditCreate(chart_ID, "DepositEdit", SIZEX*0.179, SIZEY*0.8, SIZEX/7, SIZEX/25, deposit_*100*1000, "Arial", TEXTSIZEHEAD);
     EditCreate(chart_ID, "CommissionEdit", SIZEX*0.179, SIZEY*0.88, SIZEX/7, SIZEX/25, commission_, "Arial", TEXTSIZEHEAD);
       
-    ButtonCreate(chart_ID, "ApplyButton", SIZEX*0.214, SIZEY*0.96, SIZEX/5.6, SIZEX/25, "Применить", "Arial", TEXTSIZEHEAD, Gray);
+    ButtonCreate(chart_ID, "ApplyButton", SIZEX*0.214, SIZEY*0.96, SIZEX/5.6, SIZEX/25, "Apply", "Arial", TEXTSIZEHEAD, Gray);
     ObjectSetInteger(chart_ID, "ApplyButton", OBJPROP_BGCOLOR, EDITBGCOLOR);
     ObjectSetInteger(chart_ID, "ApplyButton", OBJPROP_COLOR, Gray);
     
-    ButtonCreate(chart_ID, "ClearButton", SIZEX*0.5, SIZEY*0.96, SIZEX/3.8, SIZEX/25, "Очистить таблицу", "Arial", TEXTSIZEHEAD, Gray);
+    ButtonCreate(chart_ID, "ClearButton", SIZEX*0.5, SIZEY*0.96, SIZEX/3.8, SIZEX/25, "Clear the table", "Arial", TEXTSIZEHEAD, Gray);
     ObjectSetInteger(chart_ID, "ClearButton", OBJPROP_BGCOLOR, EDITBGCOLOR);
   }
    
-void RectLabelCreate(const long             chart_ID=0,               // ID графика 
-                     const string           name="RectLabel",         // имя метки
-                     const int              x=0,                      // координата по оси X 
-                     const int              y=0,                      // координата по оси Y 
-                     const int              width=0,                  // ширина 
-                     const int              height=0)                 // высота
+void RectLabelCreate(const long             chart_ID=0,               // chart ID 
+                     const string           name="RectLabel",         // label name
+                     const int              x=0,                      // X coord
+                     const int              y=0,                      // Y coord
+                     const int              width=0,                  // width 
+                     const int              height=0)                 // height
    {
       ObjectCreate(chart_ID,name,OBJ_RECTANGLE_LABEL,0,0,0);
       ObjectSetInteger(chart_ID,name,OBJPROP_XDISTANCE,x); 
@@ -649,16 +649,16 @@ void RectLabelCreate(const long             chart_ID=0,               // ID гр
       ObjectSetInteger(chart_ID,name,OBJPROP_HIDDEN,true);
    }
    
-void ButtonCreate(const long              chart_ID=0,               // ID графика 
-                  const string            name="Button",            // имя кнопки
-                  const int               x=0,                      // координата по оси X 
-                  const int               y=0,                      // координата по оси Y 
-                  const int               width=0,                  // ширина кнопки 
-                  const int               height=0,                 // высота кнопки
-                  const string            text="",                  // текст 
-                  const string            font="Arial",             // шрифт 
-                  const int               font_size=10,             // размер шрифта
-                  const color             border_clr=clrNONE)       // цвет границы
+void ButtonCreate(const long              chart_ID=0,               // chart ID  
+                  const string            name="Button",            // button name
+                  const int               x=0,                      // X coord
+                  const int               y=0,                      // Y coord
+                  const int               width=0,                  // button width
+                  const int               height=0,                 // button height
+                  const string            text="",                  // text 
+                  const string            font="Arial",             // font 
+                  const int               font_size=10,             // font size
+                  const color             border_clr=clrNONE)       // border color
    {
       ObjectCreate(chart_ID,name,OBJ_BUTTON,0,0,0);
       ObjectSetInteger(chart_ID,name,OBJPROP_XDISTANCE,x); 
@@ -678,13 +678,13 @@ void ButtonCreate(const long              chart_ID=0,               // ID гра
       ObjectSetInteger(chart_ID,name,OBJPROP_SELECTED,false); 
    }
 
-void LabelCreate(const long              chart_ID=0,               // ID графика 
-                 const string            name="Label",             // имя метки
-                 const int               x=0,                      // координата по оси X 
-                 const int               y=0,                      // координата по оси Y
-                 const string            text="Label",             // текст 
-                 const string            font="Arial",             // шрифт 
-                 const int               font_size=10)             // размер шрифта
+void LabelCreate(const long              chart_ID=0,               // chart ID 
+                 const string            name="Label",             // label name
+                 const int               x=0,                      // X coord
+                 const int               y=0,                      // Y coord
+                 const string            text="Label",             // text 
+                 const string            font="Arial",             // font 
+                 const int               font_size=10)             // font size
    { 
       ObjectCreate(chart_ID,name,OBJ_LABEL,0,0,0);
       ObjectSetInteger(chart_ID,name,OBJPROP_XDISTANCE,x); 
@@ -700,15 +700,15 @@ void LabelCreate(const long              chart_ID=0,               // ID гра�
       ObjectSetInteger(chart_ID,name,OBJPROP_SELECTED,false); 
    }
 
-void EditCreate(const long             chart_ID=0,               // ID графика 
-                const string           name="Edit",              // имя объекта
-                const int              x=0,                      // координата по оси X 
-                const int              y=0,                      // координата по оси Y 
-                const int              width=0,                  // ширина 
-                const int              height=0,                 // высота 
-                const string           text="Text",              // текст 
-                const string           font="Arial",             // шрифт 
-                const int              font_size=10)             // размер шрифта
+void EditCreate(const long             chart_ID=0,               // chart ID 
+                const string           name="Edit",              // object name
+                const int              x=0,                      // X coord
+                const int              y=0,                      // Y coord
+                const int              width=0,                  // width 
+                const int              height=0,                 // height 
+                const string           text="Text",              // text 
+                const string           font="Arial",             // font 
+                const int              font_size=10)             // font size
    {
       ObjectCreate(chart_ID,name,OBJ_EDIT,0,0,0);
       ObjectSetInteger(chart_ID,name,OBJPROP_XDISTANCE,x); 
